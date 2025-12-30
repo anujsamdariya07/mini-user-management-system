@@ -29,6 +29,7 @@ This project demonstrates backend authentication flows, API security, RBAC, clea
 - Cookie-parser
 - CORS
 - Jest & Supertest (Testing)
+- Docker 
 
 ### Frontend
 - React (Vite)
@@ -85,6 +86,14 @@ PORT=
 MONGO_URI=
 JWT_SECRET=
 NODE_ENV=
+```
+If you want to run container specifically, then first ensure that Docker Desktop is up and running and then, pass the following command:
+```bash
+docker build -t user-management-system-server:latest .
+``` 
+Once the image has been created, then run:
+```bash
+docker run -p 5000:5000 user-management-system-server:latest
 ```
 
 ## Deployment Instructions
