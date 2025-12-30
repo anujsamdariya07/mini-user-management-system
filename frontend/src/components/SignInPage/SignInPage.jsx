@@ -91,9 +91,12 @@ const SignInPage = () => {
 
         <p className='text-sm text-center mt-4'>
           Don’t have an account?{' '}
-          <Link to='/signup' className='underline'>
+          <span
+            onClick={() => navigate('/signup')}
+            className='underline cursor-pointer'
+          >
             Sign up
-          </Link>
+          </span>
         </p>
       </div>
     </div>

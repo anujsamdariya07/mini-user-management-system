@@ -141,7 +141,7 @@ const ProfilePage = () => {
           <button
             type='submit'
             disabled={updatingUser}
-            className='px-4 py-2 bg-black text-white rounded flex items-center gap-2 disabled:opacity-50'
+            className='px-4 py-2 bg-black text-white rounded flex items-center gap-2 disabled:opacity-50 cursor-pointer'
           >
             {updatingUser ? (
               <>
@@ -155,7 +155,7 @@ const ProfilePage = () => {
 
           <button
             onClick={handleProfileCancel}
-            className='px-4 py-2 border rounded'
+            className='px-4 py-2 border rounded cursor-pointer'
           >
             Cancel
           </button>
@@ -208,7 +208,7 @@ const ProfilePage = () => {
         <button
           type='submit'
           disabled={updatingPassword}
-          className='px-4 py-2 bg-black text-white rounded flex items-center gap-2 disabled:opacity-50'
+          className='px-4 py-2 bg-black text-white rounded flex items-center gap-2 disabled:opacity-50 cursor-pointer'
         >
           {updatingPassword ? (
             <>

@@ -67,18 +67,18 @@ const Navbar = () => {
             </div>
           ) : (
             <div className='flex items-center gap-2'>
-              <Link
-                to='/signin'
-                className='text-sm border px-3 py-1 rounded hover:bg-gray-100'
+              <span
+                onClick={() => navigate('/signin')}
+                className='text-sm border px-3 py-1 rounded hover:bg-gray-100 cursor-pointer'
               >
                 Sign In
-              </Link>
-              <Link
-                to='/signup'
-                className='text-sm border px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700'
+              </span>
+              <span
+                onClick={() => navigate('/signup')}
+                className='text-sm border px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 cursor-pointer'
               >
                 Sign Up
-              </Link>
+              </span>
             </div>
           )}
         </div>
@@ -136,20 +136,26 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link
+              <span
                 to='/signin'
-                onClick={() => setMenuOpen(false)}
-                className='block text-sm border px-3 py-2 rounded'
+                onClick={() => {
+                  setMenuOpen(false);
+                  navigate('/signin');
+                }}
+                className='block text-sm border px-3 py-2 rounded cursor-pointer'
               >
                 Sign In
-              </Link>
-              <Link
+              </span>
+              <span
                 to='/signup'
-                onClick={() => setMenuOpen(false)}
-                className='block text-sm border px-3 py-2 rounded bg-blue-600 text-white'
+                onClick={() => {
+                  setMenuOpen(false);
+                  navigate('/signup');
+                }}
+                className='block text-sm border px-3 py-2 rounded bg-blue-600 text-white cursor-pointer'
               >
                 Sign Up
-              </Link>
+              </span>
             </>
           )}
         </div>

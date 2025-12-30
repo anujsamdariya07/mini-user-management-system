@@ -1,8 +1,9 @@
 import { useAuthStore } from '../../store/useAuthStore';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const { authUser } = useAuthStore();
+  const navigate = useNavigate();
 
   if (!authUser) {
     return (
@@ -16,12 +17,18 @@ const HomePage = () => {
           </p>
 
           <div className='flex justify-center gap-4'>
-            <Link to='/login' className='px-4 py-2 bg-black text-white rounded'>
+            <span
+              onClick={() => navigate('/signin')}
+              className='px-4 py-2 bg-black text-white rounded cursor-pointer'
+            >
               Login
-            </Link>
-            <Link to='/signup' className='px-4 py-2 border rounded'>
+            </span>
+            <span
+              onClick={() => navigate('/signup')}
+              className='px-4 py-2 border rounded cursor-pointer'
+            >
               Sign Up
-            </Link>
+            </span>
           </div>
         </div>
       </div>
@@ -40,17 +47,20 @@ const HomePage = () => {
         </p>
 
         <div className='flex justify-center gap-4'>
-          <Link to='/profile' className='px-4 py-2 border rounded'>
+          <span
+            onClick={() => navigate('/profile')}
+            className='px-4 py-2 border rounded cursor-pointer'
+          >
             My Profile
-          </Link>
+          </span>
 
           {authUser.role === 'admin' && (
-            <Link
-              to='/admin'
-              className='px-4 py-2 bg-black text-white rounded'
+            <span
+              onClick={() => navigate('/admin')}
+              className='px-4 py-2 bg-black text-white rounded cursor-pointer'
             >
               Admin Dashboard
-            </Link>
+            </span>
           )}
         </div>
       </div>
