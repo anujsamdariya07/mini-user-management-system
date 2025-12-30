@@ -81,6 +81,12 @@ const signIn = async (req, res) => {
       return res.status(401).json({ message: 'Invalid email or password!' });
     }
 
+    if (user.status === 'inactive') {
+      return res.status(403).json({
+        message: 'Your account has been deactivated! \nPlease contact admin!',
+      });
+    }
+
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid email or password!' });
@@ -115,6 +121,13 @@ const check = async (req, res) => {
     const user = await User.findById(req.user._id).select('-password');
     if (!user) {
       return res.status(404).json({ message: 'User not found!' });
+    }
+
+    if (user.status === 'inactive') {
+      return res.status(403).json({
+        message: 'Your account has been deactivated!',
+        inactive: true,
+      });
     }
 
     return res.status(200).json({
