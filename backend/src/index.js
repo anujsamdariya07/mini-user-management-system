@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://user-management-system.vercel.app',
+  'https://user-management-system-three-mu.vercel.app',
 ];
 
 app.use(express.json());
