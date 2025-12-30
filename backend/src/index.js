@@ -36,7 +36,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}...`);
-  dbConnect();
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}...`);
+//   dbConnect();
+// });
+export default app;
